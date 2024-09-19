@@ -1,19 +1,33 @@
+import "./Card.css"
+
 export function Card({card}) {
+    const goToUrl = (url) => {
+        window.open(url, "_blank", "noopener,noreferrer")
+    };
+
+    const { name, description, interests, linkedinUrl, xUrl } = card
+
     return (
         <div id="card">
-            <h1><b>card.name</b></h1>
-            <h2>card.description</h2>
-            <h1><b>Interests</b></h1>
-            {card.interests.map((interest) => {
-                <h2>{interest}</h2>
-            })}
+            <h2><b>{name}</b></h2>
+            <p>{description}</p>
+            <h3>Interests</h3>
+            <ul>
+                {(interests || []).map((interest) => {
+                    return <li>{interest}</li>
+                })}
+            </ul>
+            
+            <div className="buttonParent">
+                <div>
+                    <button onClick={() => goToUrl(linkedinUrl)} className="button">Linkedin</button>
+                </div>
+                <div>
+                    <button onClick={() => goToUrl(xUrl)} className="button">X</button>
+                </div>
+            </div>
 
-            <button onClick={goToUrl(card.linkedinUrl)}>Linkedin</button>
-            <button onClick={goToUrl(card.xUrl)}>X</button>
+            
         </div>
     )
-}
-
-function goToUrl(url) {
-    window.location.href = url
 }

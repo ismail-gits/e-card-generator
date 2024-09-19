@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState } from "react"
+import { Card } from "./components/Card"
+import { GenerateCard } from "./components/GenerateCard"
+import "./app.css"
 
 function App() {
-  const [card, setCard] = useState([])
-
-  fetch("http://localhost:3000/retriveCard")
-  .then(async (response) => {
-    const json = await response.json()
-    setCard(json.card)
-  })
+  const [card, setCard] = useState({})
+  const [isCardGenerated, setisCardGenerated] = useState(false)
 
   return (
-    <div>
+    <div id="app">
+      <div>
+        <GenerateCard setCard={setCard} setisCardGenerated={setisCardGenerated}></GenerateCard>
+      </div>
 
+      <div>
+        {isCardGenerated && <Card card={card}></Card>}
+      </div>
     </div>
   )
 }
