@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./GenerateCard.css"
 
-export function GenerateCard({setCard, setisCardGenerated}) {
+export function GenerateCard({setCard, setIsCardGenerated}) {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [interests, setInterests] = useState([])
@@ -25,7 +25,7 @@ export function GenerateCard({setCard, setisCardGenerated}) {
         .then(async (response) => {
             const json = await response.json()
             setCard(json.card)
-            setisCardGenerated(true)
+            setIsCardGenerated(true)
         })
         .catch((err) => {
             console.log(err)

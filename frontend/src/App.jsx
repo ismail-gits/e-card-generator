@@ -5,12 +5,12 @@ import "./app.css"
 
 function App() {
   const [card, setCard] = useState({})
-  const [isCardGenerated, setisCardGenerated] = useState(false)
+  const [isCardGenerated, setIsCardGenerated] = useState(false)
 
   return (
     <div id="app">
       <div>
-        <GenerateCard setCard={setCard} setisCardGenerated={setisCardGenerated}></GenerateCard>
+        <GenerateCard setCard={setCard} setisCardGenerated={setIsCardGenerated}></GenerateCard>
       </div>
 
       <div>
