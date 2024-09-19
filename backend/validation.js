@@ -8,10 +8,6 @@ const generateCardSchema = zod.object({
     xUrl: zod.string().url()
 })
 
-const retrieveCardSchema = zod.object({
-    id: zod.string().min(1)
-})
-
 module.exports = {
     generateCardSchema,
     retrieveCardSchema

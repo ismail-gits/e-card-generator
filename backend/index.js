@@ -1,6 +1,6 @@
 const express = require('express')
 const { Cards } = require('./db')
-const { generateCardSchema, retrieveCardSchema } = require('./validation')
+const { generateCardSchema } = require('./validation')
 const cors = require('cors')
 const app = express()
 
